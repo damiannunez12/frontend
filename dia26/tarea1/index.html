@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Astro v5.13.2" />
+    <title>Album example · Bootstrap v5.3</title>
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/album/"
+    />
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path
+          d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
+        ></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+      <button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use>
+            </svg>
+            Light
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <header data-bs-theme="dark">
+      <div class="collapse text-bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4>About</h4>
+              <p class="text-body-secondary">
+                Add some information about the album below, the author, or any
+                other background context. Make it a few sentences long so folks
+                can pick up some informative tidbits. Then, link them off to
+                some social networking sites or contact information.
+              </p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4>Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Follow on X</a></li>
+                <li><a href="#" class="text-white">Like on Facebook</a></li>
+                <li><a href="#" class="text-white">Email me</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              aria-hidden="true"
+              class="me-2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+              ></path>
+              <circle cx="12" cy="13" r="4"></circle>
+            </svg>
+            <strong>ALBUN DE RELOJ</strong>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarHeader"
+            aria-controls="navbarHeader"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">ALGUNOS MODELOS</h1>
+            <p class="lead text-body-secondary">
+              Un buen reloj no solo mide las horas; cuenta tu historia, refleja tu estilo y te acompaña en cada paso importante.
+               En nuestra tienda, seleccionamos piezas que combinan precisión técnica, 
+               durabilidad y un diseño excepcional para adaptarse a tu ritmo de vida.
+            </p>
+            <p>
+              <a href="#" class="btn btn-primary my-2"> Acción Principal.</a>
+              
+            </p>
+          </div>
+        </div>
+      </section>
+<div class="album py-5 bg-body-tertiary">
+  <div class="container">
+    <!-- Rejilla: 1 columna en móvil, 2 en tablets y máximo 3 en pantallas grandes -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      
+      <!-- RELOJ 1 -->
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="imagenes/producto1.jpg" 
+               class="card-img-top" 
+               alt="Cronógrafo de Lujo" 
+               style="aspect-ratio: 1 / 1; object-fit: cover; width: 100%;">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold">Cronógrafo de Lujo</h5>
+              <p class="card-text text-muted">Elegante diseño con fases lunares y correa de cuero marrón, ideal para ocasiones especiales.</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-primary">Comprar</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+              </div>
+              <span class="fw-bold text-dark">$120.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RELOJ 2 -->
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="imagenes/producto2.jpg" 
+               class="card-img-top" 
+               alt="Smartwatch Minimalista" 
+               style="aspect-ratio: 1 / 1; object-fit: cover; width: 100%;">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold">Smartwatch Minimalista</h5>
+              <p class="card-text text-muted">Pantalla digital negra y bordes metálicos, perfecto para la vida urbana y deportiva.</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-primary">Comprar</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+              </div>
+              <span class="fw-bold text-dark">$95.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RELOJ 3 -->
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="imagenes/producto3.jpg" 
+               class="card-img-top" 
+               alt="Mecánico Esqueleto" 
+               style="aspect-ratio: 1 / 1; object-fit: cover; width: 100%;">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold">Mecánico Esqueleto</h5>
+              <p class="card-text text-muted">Pieza de alta relojería con diseño oscuro que expone su sofisticada maquinaria interna.</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-primary">Comprar</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+              </div>
+              <span class="fw-bold text-dark">$250.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RELOJ 4 -->
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="imagenes/producto4.jpg" 
+               class="card-img-top" 
+               alt="Deportivo Todoterreno" 
+               style="aspect-ratio: 1 / 1; object-fit: cover; width: 100%;">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold">Deportivo Todoterreno</h5>
+              <p class="card-text text-muted">Reloj digital robusto con alta resistencia al agua, diseñado para aventuras extremas.</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-primary">Comprar</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+              </div>
+              <span class="fw-bold text-dark">$80.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RELOJ 5 -->
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="imagenes/producto5.jpg" 
+               class="card-img-top" 
+               alt="Vintage de Dama" 
+               style="aspect-ratio: 1 / 1; object-fit: cover; width: 100%;">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold">Vintage de Dama</h5>
+              <p class="card-text text-muted">Estética retro en color oro radiante con una fina y sofisticada correa de malla metálica.</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-primary">Comprar</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+              </div>
+              <span class="fw-bold text-dark">$150.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RELOJ 6 -->
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="imagenes/producto6.jpg" 
+               class="card-img-top" 
+               alt="Buceo en Titanio" 
+               style="aspect-ratio: 1 / 1; object-fit: cover; width: 100%;">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold">Buceo en Titanio</h5>
+              <p class="card-text text-muted">Bisel giratorio y alta hermeticidad, construido para resistir inmersiones marinas.</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-primary">Comprar</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+              </div>
+              <span class="fw-bold text-dark">$310.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RELOJ 7 -->
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="imagenes/producto7.jpg" 
+               class="card-img-top" 
+               alt="Digital Cyberpunk" 
+               style="aspect-ratio: 1 / 1; object-fit: cover; width: 100%;">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold">Digital Cyberpunk</h5>
+              <p class="card-text text-muted">Modelo de acero inoxidable con pantalla futurista para estilos vanguardistas.</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-primary">Comprar</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+              </div>
+              <span class="fw-bold text-dark">$110.00</span >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RELOJ 8 -->
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="imagenes/producto8.jpg" 
+               class="card-img-top" 
+               alt="Aviador Clásico" 
+               style="aspect-ratio: 1 / 1; object-fit: cover; width: 100%;">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold">Aviador Clásico</h5>
+              <p class="card-text text-muted">Diseño inspirado en la aeronáutica con esfera legible y correa de cuero premium.</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-primary">Comprar</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+              </div>
+              <span class="fw-bold text-dark">$135.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+           <!-- RELOJ 9 -->
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="imagenes/producto9.jpg" 
+               class="card-img-top" 
+               alt="Esfera Ejecutiva Elegante" 
+               style="aspect-ratio: 1 / 1; object-fit: cover; width: 100%;">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold">Esfera Ejecutiva</h5>
+              <p class="card-text text-muted">Un diseño de alta elegancia con esfera limpia y acabados impecables, ideal para un estilo sobrio y distinguido.</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-primary">Comprar</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+              </div>
+              <span class="fw-bold text-dark">$140.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- SECCIÓN DE CONTACTO PANORÁMICA (Toda la pantalla) -->
+<div class="bg-white py-5 border-top w-100 px-0" id="contacto">
+  <div class="container-fluid px-4 px-md-5 py-4">
+    <div class="row g-5 align-items-center">
+      
+      <!-- Columna Izquierda: Información de la Tienda -->
+      <div class="col-lg-5">
+        <h2 class="fw-bold text-dark mb-3 fs-1">Contáctanos</h2>
+        <p class="text-muted mb-4 fs-5">¿Tienes alguna duda sobre nuestros relojes o necesitas asistencia con tu compra? Nuestro equipo experto está listo para ayudarte.</p>
+        
+        <!-- Datos de contacto -->
+        <div class="d-flex align-items-center mb-4">
+          <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; min-width: 50px;">
+            <span style="font-style: normal; font-size: 1.25rem;">📍</span>
+          </div>
+          <div>
+            <h5 class="mb-0 fw-bold">Nuestra Tienda</h5>
+            <p class="mb-0 text-muted fs-6">San Lorenzo, Paraguay</p>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center mb-4">
+          <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; min-width: 50px;">
+            <span style="font-style: normal; font-size: 1.25rem;">☏</span>
+          </div>
+          <div>
+            <h5 class="mb-0 fw-bold">Teléfono / WhatsApp</h5>
+            <p class="mb-0 text-muted fs-6">+595 912 345 678</p>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center mb-4">
+          <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; min-width: 50px;">
+            <span style="font-style: normal; font-size: 1.25rem;">✉</span>
+          </div>
+          <div>
+            <h5 class="mb-0 fw-bold">Correo Electrónico</h5>
+            <p class="mb-0 text-muted fs-6">contacto@tusitiorelojes.com</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Formulario de Mensaje Panorámico -->
+      <div class="col-lg-7">
+        <div class="card p-4 p-md-5 shadow-sm border-0 bg-body-tertiary">
+          <form>
+            <div class="row g-4">
+              <div class="col-md-6">
+                <label class="form-label small fw-bold text-uppercase tracking-wider">Nombre completo</label>
+                <input type="text" class="form-control form-control-lg" placeholder="Ej. Juan Pérez" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold text-uppercase tracking-wider">Correo electrónico</label>
+                <input type="email" class="form-control" placeholder="juan@correo.com" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label small fw-bold text-uppercase tracking-wider">Asunto</label>
+                <input type="text" class="form-control" placeholder="Ej. Consulta sobre stock o garantía" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label small fw-bold text-uppercase tracking-wider">Tu mensaje</label>
+                <textarea class="form-control" rows="5" placeholder="Escribe aquí tu pregunta detallada..." required></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary w-100 py-3 fw-bold text-uppercase tracking-wide">Enviar Mensaje</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+    <footer class="text-body-secondary py-5">
+      <div class="container">
+        <p class="float-end mb-1"><a href="#"></a></p>
+        <p class="mb-1">
+        
+        </p>
+        <p class="mb-0">
+        
+        </p>
+      </div>
+    </footer>
+    <script
+      src="../assets/dist/js/bootstrap.bundle.min.js"
+      class="astro-vvvwv3sm"
+    ></script>
+  </body>
+</html>

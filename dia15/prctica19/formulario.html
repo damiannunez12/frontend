@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es-PY">
+    <head>
+        <title>Registro de Clientes</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+    </head>
+    <body>
+        <h1>Formulario de registro de produstos</h1>
+        <div class="mb-3">
+            <label for="Codigo_barras" class="form_label">Código de barra</label>
+            <input type="text" class="form-control" id="codigo_barras">
+    </div>
+        <div class="mb-3">
+            <label for="Codigo_barras" class="form_label">Nombre</label>
+            <input type="text" class="form-control" id="nombre_producto">
+      
+        </div>
+         <div class="mb-3">
+            <label for="categoria">Categoria</label>
+            <select id="categoria" class="form-selct">
+                <option selected disabled>Seleccione una</option>
+                <option>Hogar</option>
+                <option>Climatización</option>
+                <option>Tecnologia</option>
+
+            </select>
+         </div>
+         <div class="mb-3 form-floating">
+            <textarea class="form-control" id="descripcion"></textarea>
+            <label for="descripcion">Descripcion</label>
+         </div>
+
+
+        <div class="mb-3" form-check>
+            <input type="radio" name="iva" id="radio1">
+            <label for="radio1">Exento</label> <br>
+            <input type="radio" name="iva" id="radio1">
+            <label for="radio2">IVA 5%</label> <br>
+            <input type="radio" name="iva" id="radio1">
+            <label for="radio3">IVA 10%</label> <br>
+            </div>
+            <div class="mb-3">
+                <label for="foto_producto"></label>
+                <input type="file" id="foto_producto">
+            </div>
+            <button id="btn_save" class="btn btn-success">Guardar</button>
+            <button id="btn_reset" class="btn btn-secondary">Recetear</button>
+    <script src="bootstrap.bundle.min.js"></script>
+</html>

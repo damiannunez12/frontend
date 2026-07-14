@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es-Py">
+    <head>
+    <title></title>
+    <meta charset="UTF-8">
+   <script src="https://code.jquery.com/jquery-4.0.0.js" 
+   integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function(){
+              $(".mini-img").on("mouseover", function(){
+               var nuevaSrc = $(this).attr("src");
+                $(".img-visor").attr("src", nuevaSrc);
+              });
+            });
+
+        </script>
+        <style>
+
+            .mini-img{
+                width:auto;
+                height: 200px;
+            }
+            .img-visor{
+                width: 100%;
+                height:auto;
+            }
+
+        </style>
+    </head>
+<body>
+
+    <img src="imagenes/producto1.jpg" class="mini-img">
+    <img src="imagenes/producto5.jpg" class="mini-img">
+    <img src="imagenes/producto3.jpg" class="mini-img">
+
+    <div id="visor">
+        <img src="imagenes/producto4.jpg" class="img-visor">
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es-PY">
+    <head>
+        <title>Primer ejercicio de javaScript</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+
+    </body>
+    <script>
+       let secreto =Math.floor(Math.random() * 10 ) + 1 ;
+       let intento;
+       
+       do{
+        intento = parseFloat(prompt("Adivina un numero del 1 al 10"));
+       }while(secreto !== intento);
+       console.log("Correcto");
+       
+    </script>
+
+</html>
